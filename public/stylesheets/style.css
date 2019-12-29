@@ -1,0 +1,14 @@
+@import url(reset/reset.min.css);
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased; }
+
+body {
+  background-color: #162f51;
+  color: #FFF; }
+
+.widget {
+  background-color: #163052; }
+
+/*# sourceMappingURL=style.css.map */

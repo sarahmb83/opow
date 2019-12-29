@@ -1,0 +1,18 @@
+@import 'bourbon/bourbon';
+@import 'global/fonts';
+@import 'reset/reset.min.css';
+
+//Variables
+$color-black: #000;
+$color-white: #FFF;
+$color-navy: #163052;
+
+body {
+	@extend %my-font;
+	background-color: darken($color-navy, .3);
+	color: $color-white;
+}
+
+.widget {
+	background-color: $color-navy;
+}

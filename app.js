@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-var server = app.listen(3000);
+var server = app.listen(5000);
 
 server.on('connection', function(socket) {
   console.log("A new connection was made by a client.");

@@ -1,14 +1,70 @@
+@import url(https://fonts.googleapis.com/css2?family=Quicksand:ital,wght@0,300..700;1,300..700&display=swap);
 @import url(reset/reset.min.css);
 body {
-  font-family: 'Roboto', Arial, sans-serif;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased; }
+  font-family: 'Quicksand', Arial, sans-serif;
+  transition: font-weight .45s ease-out; }
+
+.title-2 .font-weight-ani, .info-desc .font-weight-ani {
+  animation: anim-font 1s ease-in-out;
+  font-weight: 700;
+  transition: font-weight .45s ease-out; }
+
+@keyframes anim-font {
+  0% {
+    font-weight: 200; }
+  100% {
+    font-weight: 700; } }
+body, .header, .main {
+  display: flex;
+  flex-wrap: wrap; }
 
 body {
-  background-color: #162f51;
-  color: #FFF; }
+  align-items: center;
+  background-color: #eff5ff;
+  color: #05306F;
+  fill: currentColor;
+  font-size: 16px;
+  justify-content: center; }
 
-.widget {
-  background-color: #163052; }
+.opow {
+  background-color: #FFF;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 3.750rem;
+  margin: 1.250rem;
+  max-width: 940px;
+  width: 100%; }
+
+.header {
+  justify-content: space-between;
+  padding-bottom: 3.125em; }
+
+.title-1 {
+  font-size: 2.188em; }
+
+.title-2 {
+  font-size: 1.250em;
+  font-weight: 400; }
+
+.icon {
+  display: inline-block;
+  padding: 0 .625em .250em 0; }
+
+.car {
+  color: #005DE8; }
+
+.car-o {
+  color: #17B2F4; }
+
+.btn {
+  appearance: none;
+  padding: .625em 1.250em; }
+
+.btn::before {
+  background-image: url(../images/car-white.png);
+  content: '';
+  display: inline-block;
+  height: 20px;
+  width: 20px; }
 
 /*# sourceMappingURL=style.css.map */

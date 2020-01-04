@@ -1,8 +1,25 @@
 // Fonts
-//@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@ 0,200..900;1,200..900&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=Quicksand:ital,wght@0,300..700;1,300..700&display=swap);
 
-%my-font {
-	font-family: 'Roboto', Arial, sans-serif;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
+%font {
+	font-family: 'Quicksand', Arial, sans-serif;
+	transition: font-weight .45s ease-out;
+}
+
+%font-weight-a {
+	.font-weight-ani {
+		animation: anim-font 1s ease-in-out;
+		font-weight: 700;
+		transition: font-weight .45s ease-out;
+	}
+}
+
+@keyframes anim-font {
+	0% {
+		font-weight: 200;
+	}
+
+	100% {
+		font-weight: 700;
+	}
 }

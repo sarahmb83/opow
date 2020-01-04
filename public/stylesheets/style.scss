@@ -1,18 +1,88 @@
-@import 'bourbon/bourbon';
-@import 'global/fonts';
-@import 'reset/reset.min.css';
+@import 'bourbon/bourbon', 'global/fonts', 'reset/reset.min.css';
 
 //Variables
-$color-black: #000;
-$color-white: #FFF;
-$color-navy: #163052;
+$c-black: #000;
+$c-white: #FFF;
+$c-navy: #163052;
+$c-light-blue: #E9F2FF;
+$c-blue: #005DE8;
+$c-teal: #17B2F4;
+$c-dark-blue: #05306F;
 
-body {
-	@extend %my-font;
-	background-color: darken($color-navy, .3);
-	color: $color-white;
+%flex {
+	display: flex;
+	flex-wrap: wrap;
 }
 
-.widget {
-	background-color: $color-navy;
+body {
+	@extend %flex;
+	@extend %font;
+	align-items: center;
+	background-color: desaturate(lighten($c-light-blue, 1), 5);
+	color: $c-dark-blue;
+	fill: currentColor;
+	font-size: 16px;
+    justify-content: center;
+}
+
+.opow {
+	background-color: $c-white;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.1);
+	border-radius: 10px;
+	padding: 3.750rem;
+	margin: 1.250rem;
+	max-width: 940px;
+	width: 100%;
+}
+
+.header {
+	@extend %flex;
+	justify-content: space-between;
+	padding-bottom: 3.125em;
+}
+
+.main {
+	@extend %flex;
+}
+
+.title-1 {
+	font-size: 2.188em;
+}
+
+.title-2 {
+	@extend %font-weight-a;
+	font-size: 1.250em;
+	font-weight: 400;
+}
+
+.info-desc {
+	@extend %font-weight-a;
+}
+
+.icon {
+	display: inline-block;
+	padding: 0 .625em .250em 0;
+}
+
+.car {
+	color: $c-blue;
+}
+
+.car-o {
+	color: $c-teal;
+}
+
+.btn {
+	appearance: none;
+	padding: .625em 1.250em;
+}
+
+.btn {
+	&::before {
+		background-image: url(../images/car-white.png);
+		content: '';
+		display: inline-block;
+		height: 20px;
+		width: 20px;
+	}
 }

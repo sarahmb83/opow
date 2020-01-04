@@ -1,10 +1,30 @@
 extends layout
 
+block header
+	header.header
+		h1.title-1
+			span.customer-name
+			|, your electricity savings
+		div.date December 2019
+
 block content
-	h1= title
-	p Welcome to #{title}
-	p.element
-	p#test-json
-	div.btn-group
-		button.btn.btn-1 Button 1
-		buttons.btn.btn-2 Button 2
+	.main
+		section.section-1.vis-cont
+			.vis-icons
+				include ../views/icons.pug
+			.btn-group
+				button.btn.btn-1.btn-active Cars
+				button.btn.btn-2 Trees
+		section.section-2.info-cont
+			h2.title-2.info-title
+				| Last month you saved enough energy to take 
+				span.font-weight-ani six cars 
+				|  off the road!
+			p.info-desc
+				span.font-weight-ani Great job!
+				|  You used 573 kWh last month, compared to 791 kWh in the same month last year. The resulting savings is enough to offset the energy consumption of six average-sized cars for one month.
+			.info-chart
+
+block footer
+	footer.footer
+	script(type='text/javascript', src='/javascripts/bundle.js')

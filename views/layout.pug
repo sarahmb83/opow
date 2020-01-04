@@ -1,9 +1,14 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
-    script(type='text/javascript', src='/javascripts/bundle.js')
-  body
-    block content
+	head
+		title= title
+		meta(charset='utf-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
+
+	body
+		.opow
+			block header
+			block content
+			block footer

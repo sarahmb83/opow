@@ -1,0 +1,76 @@
+//Variables
+$c-black: #000;
+$c-white: #FFF;
+$c-navy: #163052;
+$c-light-blue: #E9F2FF;
+$c-blue: #005DE8;
+$c-teal: #17B2F4;
+$c-dark-blue: #05306F;
+
+// Breakpoints
+$bp-1280: 1280px;
+$bp-960: 960px;
+$bp-840: 840px;
+$bp-600: 600px;
+$bp-400: 400px;
+
+// Min width breakpoint
+@mixin breakpoint($bp-600) {
+	@media only screen and (min-width: $bp-600) {
+		@content;
+	}
+}
+
+//Mixins
+@mixin flex($wrap: wrap) {
+	display: flex;
+	flex-wrap: $wrap;
+}
+
+//Animation
+@keyframes anim-font {
+	0% {
+		font-weight: 200;
+	}
+
+	100% {
+		font-weight: 700;
+	}
+}
+
+@keyframes anim-width {
+	0% {
+		width: 0;
+	}
+
+	100% {
+		width: 72%;
+	}
+}
+
+@keyframes anim-icon {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 40px;
+	}
+}
+
+@keyframes anim-icon-sm {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 40px;
+	}
+}
+
+@keyframes anim-icon-o-a {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}

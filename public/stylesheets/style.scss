@@ -1,88 +1,428 @@
-@import 'bourbon/bourbon', 'global/fonts', 'reset/reset.min.css';
-
-//Variables
-$c-black: #000;
-$c-white: #FFF;
-$c-navy: #163052;
-$c-light-blue: #E9F2FF;
-$c-blue: #005DE8;
-$c-teal: #17B2F4;
-$c-dark-blue: #05306F;
-
-%flex {
-	display: flex;
-	flex-wrap: wrap;
-}
+@import 'bourbon/bourbon', 'global/fonts', 'global/vars', 'reset/reset.min.css';
+//I would normally minify all of this ;)
 
 body {
-	@extend %flex;
+	@include flex;
 	@extend %font;
 	align-items: center;
+	justify-content: center;
 	background-color: desaturate(lighten($c-light-blue, 1), 5);
 	color: $c-dark-blue;
 	fill: currentColor;
 	font-size: 16px;
-    justify-content: center;
+}
+
+*:focus {
+	outline: 3px auto lighten($c-blue, 30);
+	outline-offset: 1px;
 }
 
 .opow {
 	background-color: $c-white;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.1);
 	border-radius: 10px;
-	padding: 3.750rem;
-	margin: 1.250rem;
+	padding: 1.875rem;
+	margin: 1.25rem;
 	max-width: 940px;
-	width: 100%;
+	width: calc(100% - 1.25rem);
+
+	@include breakpoint($bp-600) {
+		padding: 3.750rem;
+	}
 }
 
 .header {
-	@extend %flex;
+	@include flex;
 	justify-content: space-between;
-	padding-bottom: 3.125em;
+	padding-bottom: 2.5em;
+
+	@include breakpoint($bp-600) {
+		padding-bottom: 3.125em;
+	}
 }
 
 .main {
-	@extend %flex;
+	
+	@include breakpoint($bp-840) {
+		@include flex;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+	}
 }
 
 .title-1 {
-	font-size: 2.188em;
+	font-size: 1.875em;
+	font-weight: 500;
+	line-height: 1.3;
+	transition: font-weight .5s ease;
+
+	@include breakpoint($bp-840) {
+		font-size: 2.188rem;
+		font-weight: 700;
+	}
 }
 
 .title-2 {
-	@extend %font-weight-a;
-	font-size: 1.250em;
+	@include flex(nowrap);
+	align-items: flex-start;
+	font-size: 1.25rem;
+	font-weight: 400;
+	padding: 0 .625rem 1.563rem 0;
+}
+
+.title-2-text {
 	font-weight: 400;
 }
 
+.title-2-thumb {
+	display: inline-block;
+	margin: .750rem .938rem 0 0;
+	opacity: .5;
+}
+
+.date {
+	opacity: .7;
+	padding-top: .625rem;
+}
+
+.font-weight-ani {
+	animation: anim-font .5s ease-in-out;
+	font-weight: 700;
+	transition: font-weight .5s ease-out;
+}
+
 .info-desc {
-	@extend %font-weight-a;
+	font-size: 1rem;
+	padding-bottom: 1.875rem;
+
+	@include breakpoint($bp-600) {
+		font-size: .875rem;
+	}
 }
 
 .icon {
+	color: $c-blue;
 	display: inline-block;
-	padding: 0 .625em .250em 0;
+	position: relative;
 }
 
-.car {
+.vis-icons-cars {
+	transition: all .1s ease;
+
+	.icon {
+		margin: 0 .625rem .25rem 0;
+		width: 40px;
+	}
+}
+
+.vis-icons-trees {
+	transition: all .1s ease;
+
+	.icon {
+		margin: 0 .875rem .5rem .375rem;
+		width: 30px;
+	}
+}
+
+.car-o-a,
+.trees-o-a {
+	position: absolute;
+	z-index: 0;
+}
+
+.cars-active .vis-icons-trees,
+.trees-active .vis-icons-cars {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	visibility: hidden;
+}
+
+.cars-active {
+	.icons-row1 {
+		.car:nth-child(2),
+		.car:nth-child(4),
+		.car:nth-child(6) {
+			svg {
+				animation: anim-icon-sm 1s ease-in-out;
+				backface-visibility: hidden;
+
+				@include breakpoint($bp-400) {
+					animation: anim-icon 1s ease-in-out;
+				}
+			}
+		}
+	}
+
+	.icons-row2 {
+		.car:nth-child(2),
+		.car:nth-child(4) {
+			svg {
+				animation: anim-icon-sm 1s ease-in-out;
+				backface-visibility: hidden;
+
+				@include breakpoint($bp-400) {
+					animation: anim-icon 1s ease-in-out;
+				}
+			}
+		}
+	}
+
+	.icons-row3 .car:nth-child(2) svg {
+		animation: anim-icon-sm 1s ease-in-out;
+		backface-visibility: hidden;
+
+		@include breakpoint($bp-400) {
+			animation: anim-icon 1s ease-in-out;
+		}
+	}
+
+	.car-o-a svg {
+		animation: anim-icon-o-a 1s ease-in;
+		backface-visibility: hidden;
+		opacity: 0;
+	}
+}
+
+.trees-active {
+	.icons-row1 {
+		.trees:nth-child(2),
+		.trees:nth-child(4),
+		.trees:nth-child(6) {
+			svg {
+				animation: anim-icon 1s ease-in-out;
+				backface-visibility: hidden;
+			}
+		}
+	}
+
+	.icons-row2 {
+		.trees:nth-child(2),
+		.trees:nth-child(4) {
+			svg {
+				animation: anim-icon 1s ease-in-out;
+				backface-visibility: hidden;
+			}
+		}
+	}
+
+	.icons-row3 .trees:nth-child(2) svg {
+		animation: anim-icon 1s ease-in-out;
+		backface-visibility: hidden;
+	}
+
+	.trees-o-a svg {
+		animation: anim-icon-o-a 1s ease-in;
+		backface-visibility: hidden;
+		opacity: 0;
+	}
+}
+
+.trees-active,
+.cars-active {
+	.icons-row1,
+	.icons-row2,
+	.icons-row3,
+	.icons-row4,
+	.icons-row5 {
+		.icon:last-child {
+			display: none;
+
+			@include breakpoint($bp-600) {
+				display: inline-block;
+			}
+		}
+	}
+
+	.icons-row5 {
+		display: none;
+
+		@include breakpoint($bp-600) {
+			display: block;
+		}
+	}
+}
+
+.car-o,
+.trees-o {
+	color: $c-teal;
+	opacity: .6;
+}
+
+.icons-row2,
+.icons-row4 {
+	padding-left: 1.563rem;
+}
+
+.vis-cont {
+	margin-bottom: 2.5rem;
+
+	@include breakpoint($bp-840) {
+		margin-bottom: 0;
+	}
+
+	@include breakpoint($bp-600) {
+		margin-right: 1.563rem;
+	}
+}
+
+.vis-icons {
+	margin: 0 auto;
+	position: relative;
+	width: 275px;
+
+	@include breakpoint($bp-600) {
+		width: 325px;
+	}
+}
+
+.info-cont {
+	max-width: unset;
+
+	@include breakpoint($bp-840) {
+		max-width: 430px;
+	}
+
+	* {
+		transition: all 1s ease;
+	}
+}
+
+.btn-group {
+	padding-top: 1.875rem;
+	text-align: center;
+
+	@include breakpoint($bp-840) {
+		padding-top: 1.250rem;
+	}
+}
+
+.btn {
+	@include prefixer(appearance, none, ("webkit", "moz"));
+	cursor: pointer;
+	padding: .625rem 1.25rem;
+	width: 50%;
+
+	@include breakpoint($bp-600) {
+		width: auto;
+	}
+}
+
+.btn {
+	font-weight: 700;
+	color: $c-white;
+	font-size: .938rem;
+	text-transform: uppercase;
+
+	&::before {
+		background-size: 100%;
+		content: '';
+		display: inline-block;
+		height: 12px;
+		margin-right: .313rem;
+		width: 20px;
+	}
+
+	&:hover {
+		transition: .5s ease;
+	}
+
+	&:not(.btn-active) {
+		background-color: $c-light-blue;
+		border-color: $c-light-blue;
+		color: lighten($c-blue, 10);
+
+		&::before {
+			opacity: .7;
+		}
+
+		&:hover {
+			background-color: darken($c-light-blue, 10);
+			border-color: darken($c-light-blue, 10);
+		}
+	}
+
+	&.btn-active {
+		background-color: $c-blue;
+		border-color: rgba($c-black, .2);
+
+		&:hover {
+			background-color: darken($c-blue, 5);
+		}
+	}
+}
+
+.btn-1 {
+	@include border-left-radius(5px);
+
+	&::before {
+		background-image: url(../images/car-blue.svg);
+	}
+
+	&.btn-active::before {
+		background-image: url(../images/car-white.svg);
+	}
+}
+
+.btn-2 {
+	@include border-right-radius(5px);
+
+	&::before {
+		background-image: url(../images/trees-blue.svg);
+	}
+
+	&.btn-active::before {
+		background-image: url(../images/trees-white.svg);
+	}
+}
+
+.info-graph {
+	margin: 0 auto;
+	max-width: 300px;
+}
+
+.info-graph-date {
+	font-weight: 700;
+}
+
+.graph-text-cont {
+	@include flex;
+	font-size: .875rem;
+	justify-content: space-between;
+	margin-top: .625rem;
+
+	@include breakpoint($bp-600) {
+		font-size: .938rem;
+	}
+}
+
+.graph-1,
+.graph-2 {
+	border: 2px solid $c-white;
+	border-radius: 6px;
+	height: 44px;
+
+	@include breakpoint($bp-600) {
+		height: 24px;
+	}
+}
+
+.graph-1 {
+	background-color: lighten($c-teal, 30);
+	width: 100%;
+}
+
+.graph-2 {
+	animation: anim-width 2s ease-out;
+	background-color: $c-blue;
+	margin-top: -12px;
+	width: 72%;
+}
+
+.graph-text-1 {
 	color: $c-blue;
 }
 
-.car-o {
-	color: $c-teal;
-}
-
-.btn {
-	appearance: none;
-	padding: .625em 1.250em;
-}
-
-.btn {
-	&::before {
-		background-image: url(../images/car-white.png);
-		content: '';
-		display: inline-block;
-		height: 20px;
-		width: 20px;
-	}
+.graph-text-2 {
+	color: lighten($c-teal, 15);
 }

@@ -13,18 +13,33 @@ block content
 			.vis-icons
 				include ../views/icons.pug
 			.btn-group
-				button.btn.btn-1.btn-active Cars
-				button.btn.btn-2 Trees
+				button#cars.btn.btn-1.btn-active Cars
+				button#trees.btn.btn-2 Trees
 		section.section-2.info-cont
 			h2.title-2.info-title
-				| Last month you saved enough energy to take 
-				span.font-weight-ani six cars 
-				|  off the road!
+				span.title-2-thumb 
+					include ../public/images/thumb.svg
+				span.title-2-text
+					| Last month you saved enough energy to take 
+					span.font-weight-ani six cars 
+					|  off the road!
 			p.info-desc
-				span.font-weight-ani Great job!
-				|  You used 573 kWh last month, compared to 791 kWh in the same month last year. The resulting savings is enough to offset the energy consumption of six average-sized cars for one month.
-			.info-chart
+				| Great job! You used 
+				span.font-weight-ani.current-year-num 
+				| last month, compared to 
+				span.font-weight-ani.prior-year-num
+				| in the same month last year. The resulting savings is enough to offset the energy consumption of six average-sized cars for one month.
+			.info-graph
+				.graph-cont
+					.graph-1(role='presentation')
+					.graph-2(role='presentation')
+				.graph-text-cont
+					.graph-text-1 
+						span.info-graph-date DEC 2019 
+						span.info-num-1.current-year-num
+					.graph-text-2 
+						span.info-graph-date DEC 2018 
+						span.info-num-2.prior-year-num
 
 block footer
-	footer.footer
 	script(type='text/javascript', src='/javascripts/bundle.js')

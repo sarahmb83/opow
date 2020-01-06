@@ -4,43 +4,109 @@ mixin car
 mixin car-o
 	span.icon.car-o
 		include ../public/images/car-o.svg
+mixin car-o-a
+	span.icon.car-o.car-o-a
+		include ../public/images/car-o.svg
+mixin trees
+	span.icon.trees 
+		include ../public/images/trees.svg
+mixin trees-o
+	span.icon.trees-o
+		include ../public/images/trees-o.svg
+mixin trees-o-a
+	span.icon.trees-o.trees-o-a
+		include ../public/images/trees-o.svg
 
-.icons-row1
-	+car
-	+car
-	+car
-	+car-o
-	+car-o
-	+car-o
+.vis-icons-cars
+	.icons-row1
+		+car-o-a
+		+car
+		+car-o-a
+		+car
+		+car-o-a
+		+car
+		+car-o
+		+car-o
+		+car-o
 
-.icons-row2
-	+car
-	+car
-	+car-o
-	+car-o
-	+car-o
-	+car-o
+	.icons-row2
+		+car-o-a
+		+car
+		+car-o-a
+		+car
+		+car-o
+		+car-o
+		+car-o
+		+car-o
 
-.icons-row3
-	+car
-	+car-o
-	+car-o
-	+car-o
-	+car-o
-	+car-o
+	.icons-row3
+		+car-o-a
+		+car
+		+car-o
+		+car-o
+		+car-o
+		+car-o
+		+car-o
 
-.icons-row4
-	+car-o
-	+car-o
-	+car-o
-	+car-o
-	+car-o
-	+car-o
+	.icons-row4
+		+car-o
+		+car-o
+		+car-o
+		+car-o
+		+car-o
+		+car-o
 
-.icons-row5
-	+car-o
-	+car-o
-	+car-o
-	+car-o
-	+car-o
-	+car-o
+	.icons-row5
+		+car-o
+		+car-o
+		+car-o
+		+car-o
+		+car-o
+		+car-o
+
+.vis-icons-trees
+	.icons-row1
+		+trees-o-a
+		+trees
+		+trees-o-a
+		+trees
+		+trees-o-a
+		+trees
+		+trees-o
+		+trees-o
+		+trees-o
+
+	.icons-row2
+		+trees-o-a
+		+trees
+		+trees-o-a
+		+trees
+		+trees-o
+		+trees-o
+		+trees-o
+		+trees-o
+
+	.icons-row3
+		+trees-o-a
+		+trees
+		+trees-o
+		+trees-o
+		+trees-o
+		+trees-o
+		+trees-o
+
+	.icons-row4
+		+trees-o
+		+trees-o
+		+trees-o
+		+trees-o
+		+trees-o
+		+trees-o
+
+	.icons-row5
+		+trees-o
+		+trees-o
+		+trees-o
+		+trees-o
+		+trees-o
+		+trees-o

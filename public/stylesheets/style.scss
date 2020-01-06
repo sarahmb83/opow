@@ -298,20 +298,19 @@ body {
 
 .btn {
 	@include prefixer(appearance, none, ("webkit", "moz"));
+	border: 1px solid rgba($c-black, .2);
+	color: $c-white;
 	cursor: pointer;
+	font-size: .938rem;
+	font-weight: 700;
+	margin: 0;
 	padding: .625rem 1.25rem;
+	text-transform: uppercase;
 	width: 50%;
 
 	@include breakpoint($bp-600) {
 		width: auto;
 	}
-}
-
-.btn {
-	font-weight: 700;
-	color: $c-white;
-	font-size: .938rem;
-	text-transform: uppercase;
 
 	&::before {
 		background-size: 100%;

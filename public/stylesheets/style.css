@@ -18,12 +18,7 @@ body {
   0% {
     width: 0; }
   100% {
-    width: 40px; } }
-@keyframes anim-icon-sm {
-  0% {
-    width: 0; }
-  100% {
-    width: 40px; } }
+    width: 100%; } }
 @keyframes anim-icon-o-a {
   0% {
     opacity: 1; }
@@ -40,7 +35,7 @@ body {
   font-size: 16px; }
 
 *:focus {
-  outline: 3px auto #82b4ff;
+  outline: 5px auto #82b4ff;
   outline-offset: 1px; }
 
 .opow {
@@ -51,9 +46,12 @@ body {
   margin: 1.25rem;
   max-width: 940px;
   width: calc(100% - 1.25rem); }
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 840px) {
     .opow {
       padding: 3.750rem; } }
+  @media only screen and (max-width: 840px) and (min-width: 600px) {
+    .opow {
+      padding: 3.750rem 6.250rem; } }
 
 .header {
   display: flex;
@@ -72,14 +70,13 @@ body {
     flex-wrap: nowrap; } }
 
 .title-1 {
-  font-size: 1.875em;
-  font-weight: 500;
+  font-size: 1.563rem;
+  font-weight: 700;
   line-height: 1.3;
-  transition: font-weight .5s ease; }
+  transition: font .5s ease; }
   @media only screen and (min-width: 840px) {
     .title-1 {
-      font-size: 2.188rem;
-      font-weight: 700; } }
+      font-size: 2.188rem; } }
 
 .title-2 {
   display: flex;
@@ -121,14 +118,20 @@ body {
 .vis-icons-cars {
   transition: all .1s ease; }
   .vis-icons-cars .icon {
-    margin: 0 .625rem .25rem 0;
+    margin: 0 .313rem .25rem 0;
     width: 40px; }
+    @media only screen and (min-width: 400px) {
+      .vis-icons-cars .icon {
+        margin: 0 .625rem .25rem 0; } }
 
 .vis-icons-trees {
   transition: all .1s ease; }
   .vis-icons-trees .icon {
-    margin: 0 .875rem .5rem .375rem;
+    margin: 0 .438rem .5rem .438rem;
     width: 30px; }
+    @media only screen and (min-width: 400px) {
+      .vis-icons-trees .icon {
+        margin: 0 .875rem .5rem .375rem; } }
 
 .car-o-a,
 .trees-o-a {
@@ -145,27 +148,15 @@ body {
 .cars-active .icons-row1 .car:nth-child(2) svg,
 .cars-active .icons-row1 .car:nth-child(4) svg,
 .cars-active .icons-row1 .car:nth-child(6) svg {
-  animation: anim-icon-sm 1s ease-in-out;
+  animation: anim-icon 1s ease-in-out;
   backface-visibility: hidden; }
-  @media only screen and (min-width: 400px) {
-    .cars-active .icons-row1 .car:nth-child(2) svg,
-    .cars-active .icons-row1 .car:nth-child(4) svg,
-    .cars-active .icons-row1 .car:nth-child(6) svg {
-      animation: anim-icon 1s ease-in-out; } }
 .cars-active .icons-row2 .car:nth-child(2) svg,
 .cars-active .icons-row2 .car:nth-child(4) svg {
-  animation: anim-icon-sm 1s ease-in-out;
+  animation: anim-icon 1s ease-in-out;
   backface-visibility: hidden; }
-  @media only screen and (min-width: 400px) {
-    .cars-active .icons-row2 .car:nth-child(2) svg,
-    .cars-active .icons-row2 .car:nth-child(4) svg {
-      animation: anim-icon 1s ease-in-out; } }
 .cars-active .icons-row3 .car:nth-child(2) svg {
-  animation: anim-icon-sm 1s ease-in-out;
+  animation: anim-icon 1s ease-in-out;
   backface-visibility: hidden; }
-  @media only screen and (min-width: 400px) {
-    .cars-active .icons-row3 .car:nth-child(2) svg {
-      animation: anim-icon 1s ease-in-out; } }
 .cars-active .car-o-a svg {
   animation: anim-icon-o-a 1s ease-in;
   backface-visibility: hidden;
@@ -229,7 +220,7 @@ body {
   padding-left: 1.563rem; }
 
 .vis-cont {
-  margin-bottom: 2.5rem; }
+  margin-bottom: 3.125rem; }
   @media only screen and (min-width: 840px) {
     .vis-cont {
       margin-bottom: 0; } }
@@ -254,7 +245,7 @@ body {
     transition: all 1s ease; }
 
 .btn-group {
-  padding-top: 1.875rem;
+  padding-top: 1.563rem;
   text-align: center; }
   @media only screen and (min-width: 840px) {
     .btn-group {
@@ -336,7 +327,7 @@ body {
 .graph-2 {
   border: 2px solid #FFF;
   border-radius: 6px;
-  height: 44px; }
+  height: 34px; }
   @media only screen and (min-width: 600px) {
     .graph-1,
     .graph-2 {
@@ -349,8 +340,11 @@ body {
 .graph-2 {
   animation: anim-width 2s ease-out;
   background-color: #005DE8;
-  margin-top: -12px;
+  margin-top: -20px;
   width: 72%; }
+  @media only screen and (min-width: 600px) {
+    .graph-2 {
+      margin-top: -12px; } }
 
 .graph-text-1 {
   color: #005DE8; }

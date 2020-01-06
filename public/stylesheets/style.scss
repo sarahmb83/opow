@@ -13,7 +13,7 @@ body {
 }
 
 *:focus {
-	outline: 3px auto lighten($c-blue, 30);
+	outline: 5px auto lighten($c-blue, 30);
 	outline-offset: 1px;
 }
 
@@ -26,8 +26,12 @@ body {
 	max-width: 940px;
 	width: calc(100% - 1.25rem);
 
-	@include breakpoint($bp-600) {
-		padding: 3.750rem;
+	@include breakpoint($bp-840) {
+		padding: 3.75rem;
+	}
+
+	@media only screen and (max-width: 840px) and (min-width: 600px)  {
+		padding: 3.75rem 6.25rem;
 	}
 }
 
@@ -51,14 +55,13 @@ body {
 }
 
 .title-1 {
-	font-size: 1.875em;
-	font-weight: 500;
+	font-size: 1.563rem;
+	font-weight: 700;
 	line-height: 1.3;
-	transition: font-weight .5s ease;
+	transition: font .5s ease;
 
 	@include breakpoint($bp-840) {
 		font-size: 2.188rem;
-		font-weight: 700;
 	}
 }
 
@@ -110,8 +113,12 @@ body {
 	transition: all .1s ease;
 
 	.icon {
-		margin: 0 .625rem .25rem 0;
+		margin: 0 .313rem .25rem 0;
 		width: 40px;
+
+		@include breakpoint($bp-400) {
+			margin: 0 .625rem .25rem 0;
+		}
 	}
 }
 
@@ -119,8 +126,12 @@ body {
 	transition: all .1s ease;
 
 	.icon {
-		margin: 0 .875rem .5rem .375rem;
+		margin: 0 .438rem .5rem .438rem;
 		width: 30px;
+
+		@include breakpoint($bp-400) {
+			margin: 0 .875rem .5rem .375rem;
+		}
 	}
 }
 
@@ -144,12 +155,8 @@ body {
 		.car:nth-child(4),
 		.car:nth-child(6) {
 			svg {
-				animation: anim-icon-sm 1s ease-in-out;
+				animation: anim-icon 1s ease-in-out;
 				backface-visibility: hidden;
-
-				@include breakpoint($bp-400) {
-					animation: anim-icon 1s ease-in-out;
-				}
 			}
 		}
 	}
@@ -158,23 +165,15 @@ body {
 		.car:nth-child(2),
 		.car:nth-child(4) {
 			svg {
-				animation: anim-icon-sm 1s ease-in-out;
+				animation: anim-icon 1s ease-in-out;
 				backface-visibility: hidden;
-
-				@include breakpoint($bp-400) {
-					animation: anim-icon 1s ease-in-out;
-				}
 			}
 		}
 	}
 
 	.icons-row3 .car:nth-child(2) svg {
-		animation: anim-icon-sm 1s ease-in-out;
+		animation: anim-icon 1s ease-in-out;
 		backface-visibility: hidden;
-
-		@include breakpoint($bp-400) {
-			animation: anim-icon 1s ease-in-out;
-		}
 	}
 
 	.car-o-a svg {
@@ -255,7 +254,7 @@ body {
 }
 
 .vis-cont {
-	margin-bottom: 2.5rem;
+	margin-bottom: 3.125rem;
 
 	@include breakpoint($bp-840) {
 		margin-bottom: 0;
@@ -289,7 +288,7 @@ body {
 }
 
 .btn-group {
-	padding-top: 1.875rem;
+	padding-top: 1.563rem;
 	text-align: center;
 
 	@include breakpoint($bp-840) {
@@ -400,7 +399,7 @@ body {
 .graph-2 {
 	border: 2px solid $c-white;
 	border-radius: 6px;
-	height: 44px;
+	height: 34px;
 
 	@include breakpoint($bp-600) {
 		height: 24px;
@@ -415,8 +414,12 @@ body {
 .graph-2 {
 	animation: anim-width 2s ease-out;
 	background-color: $c-blue;
-	margin-top: -12px;
+	margin-top: -20px;
 	width: 72%;
+
+	@include breakpoint($bp-600) {
+		margin-top: -12px;
+	}
 }
 
 .graph-text-1 {
